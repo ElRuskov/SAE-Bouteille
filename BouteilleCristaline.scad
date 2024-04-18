@@ -1,4 +1,7 @@
 $fn=200;
+module extrudeSupport(){
+cylinder(h=10,d=64,center=false);    
+}
 module extrudeBouteille(){
 linear_extrude(height = 13, center = false, twist = -1500,$fn=50)
 translate([25/2, 0, 0])
@@ -31,13 +34,6 @@ difference(){
     translate([0,0,135])
     translate([0,0,-124.9])
     sphere(d=63);}}
-
-
-*minkowski(){
-    cube([120,100,1.63],true);
-    cylinder(r=3);
-}
-
 module Bouteille(){
 color("white"){
 difference(){
@@ -45,7 +41,20 @@ difference(){
     translate([0,0,-0.01])
     arrondi();}}}
 
+module Support(){
+color("gray"){translate([0,0,-6])
+minkowski(){
+    cube([120,100,1.63],true);
+    cylinder(r=3);}
 
+difference(){    
+cylinder(h=9,d=65,center=true);
+extrudeSupport();}
+}}
+
+
+
+translate([0,0,4]){Support();}
 Bouteille();
-translate([100,0,0])
-Bouchon();
+translate([100,0,0]){Bouchon();}
+
