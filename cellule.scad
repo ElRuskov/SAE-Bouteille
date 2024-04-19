@@ -17,6 +17,13 @@ translate([45,0,1845]){
 rotate([0,0,43.9])
 cube(size=[1665,45,45],center=false);    
 }}
+module plaque(){
+translate([45,0,920])
+cube(size=[1153,490,10],center=false);
+rotate([0,0,90])
+translate([0,-1250,920])
+cube(size=[1153,490,10],center=false);    
+}
 module cellule(){
 face();
 haut();
@@ -24,6 +31,6 @@ translate([1200,1200,0]){
 rotate([0,0,-90]){
 face();
 haut2();}}
-transversale();}
-
+transversale();
+plaque();}
 cellule();
