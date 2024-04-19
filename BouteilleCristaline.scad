@@ -54,7 +54,7 @@ extrudeSupport();}
 
 
 
-translate([0,0,4]){Support();}
-Bouteille();
-translate([100,0,0]){Bouchon();}
+//translate([0,0,4]){Support();}
+//Bouteille();
+//translate([100,0,0]){Bouchon();}
 

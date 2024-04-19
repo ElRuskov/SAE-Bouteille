@@ -1,4 +1,5 @@
 use <BouteilleCristaline.scad>
+use <cellule.scad>
 import ("a0b.stl");
 import ("a1b.stl");
 import("a2b.stl");
@@ -11,3 +12,4 @@ translate([0,300,0])
 Bouteille();
 translate([0,400,0])
 Bouchon();
+cellule();
