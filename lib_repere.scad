@@ -14,4 +14,3 @@ fleche (1000);
 rotate(-90,[1,0,0])
 color( "green")
 fleche (1000);}
-repere();
