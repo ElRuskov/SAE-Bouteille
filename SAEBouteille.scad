@@ -14,18 +14,35 @@ cellule();}
 
 
 
-module p1p2 (theta){
+module robot(tabtheta){
 P0();repere();
-matDh(alpha=0,d=0,theta=theta,r=190)P1();translate([0,0,200])repere();
-matDh(alpha=0,d=0,theta=theta,r=290)translate([0,156,0])rotate([0,theta,0])P2();translate([0,0,200])repere();
+
+d3=5;
+rl4=6;}
+     
+    
+matDh(theta=tabtheta[1-1]){
+    repere();P1();                    
+    matDh(alpha=0,theta=0){
+        rotate([0,tabtheta[2-1],0]){repere();
+         translate([0,0,-375])P2();   
+        matDh(theta=0){
+            repere();translate([0,0,290])rotate([0,tabtheta[3-1],0])translate([0,0,-290-375])P3();   
+            matDh(alpha=-90,theta=tabtheta[4-1],r=rl4){
+                repere();   
+                matDh(alpha=90,theta=tabtheta[5-1]){
+                  repere();   
+                  matDh(alpha=-90,theta=tabtheta[6-1]){
+                    repere();           
+                    }       
+                }        
+            }        
+        }               
+    }        
 }
-
-p1p2(360*sin($t*360));
-
-
-
-matDh(alpha=0,d=20,theta=360*sin($t*360),r=535)P3();
-matDh(alpha=0,d=20,theta=360*sin($t*360),r=770)P4();
-matDh(alpha=0,d=20,theta=360*sin($t*360),r=940)P5();
-matDh(alpha=0,d=20,theta=360*sin($t*360),r=1027)P6();
+}
+////////////////////////////////////////////////////////////////
+//animer avec angle= $t*360
+tabtheta=[$t*360,0,0,0,0,0];
+robot(tabtheta);
 *composant();
