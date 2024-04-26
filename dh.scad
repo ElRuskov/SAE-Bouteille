@@ -7,7 +7,7 @@ module matDh(alpha=0,d=0,theta=0,r=0){
                      [         0           ,           0          ,      0     ,    1      ]   ])
         children(); 
     } 
-module robot(){
+module robot(tabtheta){
     P0();
     matDh(theta=tabtheta[1-1]){
         P1();
@@ -30,5 +30,5 @@ module robot(){
         }
     }
 
-tabtheta=[$t*0,$t*0,$t*0,$t*0,$t*0,$t*360];
-robot(tabtheta);
+
+
